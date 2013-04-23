@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pivotal-brancher (0.0.1)
+    pivotal-brancher (0.0.2)
       pivotal-tracker (~> 0.5.1)
       thor (~> 0.18)
       valise (~> 0.9)

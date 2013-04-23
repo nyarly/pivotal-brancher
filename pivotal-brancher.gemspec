@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "pivotal-brancher"
-  spec.version		= "0.0.1"
+  spec.version		= "0.0.2"
   author_list = {
     "Judson Lester" => 'nyarly@gmail.com'
   }
@@ -10,9 +10,8 @@ Gem::Specification.new do |spec|
   spec.description	= <<-EndDescription
   Some command line tools to be used in tandem with a githook for Pivotal
 
-   - pt-start will switch to
-  (possibly creating) a git branch named for your current highest priority
-  started Pivotal story.
+  `pb start` will switch to (possibly creating) a git branch named for your
+  current highest priority started Pivotal story.
   EndDescription
 
   spec.rubyforge_project= spec.name.downcase
