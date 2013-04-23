@@ -1,3 +1,4 @@
 .bundle
 .pivotal-brancher
 *.sw?
+pkg/

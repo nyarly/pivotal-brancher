@@ -11,10 +11,10 @@ module Corundum
     QuestionableContent.new(core) do |dbg|
       dbg.words = %w{p debugger}
     end
-    rspec = RSpec.new(core)
-    cov = SimpleCov.new(core, rspec) do |cov|
-      cov.threshold = 70
-    end
+#    rspec = RSpec.new(core)
+#    cov = SimpleCov.new(core, rspec) do |cov|
+#      cov.threshold = 0
+#    end
 
     gem = GemBuilding.new(core)
     cutter = GemCutter.new(core,gem)
