@@ -1,0 +1,85 @@
+PATH
+  remote: .
+  specs:
+    pivotal-brancher (0.0.1)
+      pivotal-tracker (>= 0.5.1)
+      valise (>= 0.9)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    builder (3.2.0)
+    chunky_png (1.2.8)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    corundum (0.0.26)
+      bundler
+      compass (>= 0.12.1)
+      mailfactory (~> 1.4.0)
+      mattock (>= 0.4.0)
+      nokogiri
+      rake-rubygems (>= 0.2.0)
+      rdoc
+      rspec (>= 2.0)
+      sass (>= 3.1)
+      simplecov (>= 0.5.4)
+      yard
+    crack (0.3.2)
+    diff-lcs (1.2.4)
+    fssm (0.2.10)
+    happymapper (0.4.0)
+      libxml-ruby (~> 2.0)
+    json (1.7.7)
+    libxml-ruby (2.6.0)
+    mailfactory (1.4.0)
+      mime-types (>= 1.13.1)
+    mattock (0.4.1)
+      tilt (> 0)
+      valise (>= 0.9.1)
+    mime-types (1.23)
+    multi_json (1.7.2)
+    nokogiri (1.5.9)
+    nokogiri-happymapper (0.5.7)
+      nokogiri (~> 1.5)
+    pivotal-tracker (0.5.10)
+      builder
+      builder
+      crack
+      happymapper (>= 0.3.2)
+      nokogiri (>= 1.4.3)
+      nokogiri (>= 1.5.5)
+      nokogiri-happymapper (>= 0.5.4)
+      rest-client (~> 1.6.0)
+      rest-client (~> 1.6.0)
+    rake (10.0.4)
+    rake-rubygems (0.2.0)
+      rake (>= 0.8.7)
+    rdoc (4.0.1)
+      json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    rspec (2.13.0)
+      rspec-core (~> 2.13.0)
+      rspec-expectations (~> 2.13.0)
+      rspec-mocks (~> 2.13.0)
+    rspec-core (2.13.1)
+    rspec-expectations (2.13.0)
+      diff-lcs (>= 1.1.3, < 2.0)
+    rspec-mocks (2.13.1)
+    sass (3.2.8)
+    simplecov (0.7.1)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.7.1)
+    simplecov-html (0.7.1)
+    tilt (1.3.7)
+    valise (0.9.1)
+    yard (0.8.6.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  corundum
+  pivotal-brancher!
