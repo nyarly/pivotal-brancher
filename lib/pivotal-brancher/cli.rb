@@ -35,7 +35,6 @@ module PivotalBrancher
         say "#{story.id}: #{story.name}"
       end
       git_command = "git checkout -b #{story_branch_name(story)}"
-      p options
       if options.pretend?
         say "Would run: #{git_command}"
       else
