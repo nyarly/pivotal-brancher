@@ -31,7 +31,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = %w[lib/]
   spec.rubygems_version = "1.3.5"
 
-  spec.executables = %w{ pt-start }
+  spec.executables = %w{ pb }
 
   spec.has_rdoc		= true
   spec.extra_rdoc_files = Dir.glob("doc/**/*")
@@ -39,8 +39,9 @@ Gem::Specification.new do |spec|
   spec.rdoc_options	+= %w{--main doc/README }
   spec.rdoc_options	+= ["--title", "#{spec.name}-#{spec.version} Documentation"]
 
-  spec.add_dependency("pivotal-tracker", ">= 0.5.1")
-  spec.add_dependency("valise", ">= 0.9")
+  spec.add_dependency("pivotal-tracker", "~> 0.5.1")
+  spec.add_dependency("valise", "~> 0.9")
+  spec.add_dependency("thor", "~> 0.18")
 
   #spec.post_install_message = "Thanks for installing my gem!"
 end

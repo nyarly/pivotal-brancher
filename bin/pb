@@ -1,0 +1,4 @@
+#!/bin/env ruby
+require 'pivotal-brancher/cli'
+
+PivotalBrancher::Cli.start

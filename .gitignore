@@ -2,3 +2,4 @@
 .pivotal-brancher
 *.sw?
 pkg/
+corundum/

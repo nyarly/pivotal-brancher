@@ -1,0 +1,9 @@
+--colour
+--require fuubar
+--format Fuubar
+--drb
+-I ~/ruby/rspec-config
+-r alert-after-running
+-I spec_support
+-r all
+-P spec/**/*.rb
