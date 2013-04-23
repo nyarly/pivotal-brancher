@@ -25,7 +25,7 @@ module Corundum
 
     yd = YARDoc.new(core)
 
-    docs = DocumentationAssembly.new(core, yd, rspec, cov)
+    docs = DocumentationAssembly.new(core, yd) #, rspec, cov)
 
     pages = GithubPages.new(docs)
   end
