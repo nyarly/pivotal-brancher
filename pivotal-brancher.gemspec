@@ -21,8 +21,13 @@ Gem::Specification.new do |spec|
   # Do this: y$@"
   # !!find lib bin doc spec spec_help -not -regex '.*\.sw.' -type f 2>/dev/null
   spec.files		= %w[
+    lib/pivotal-brancher/app.rb
+    lib/pivotal-brancher/cli.rb
     lib/pivotal-brancher.rb
-    bin/pt-start
+    bin/pb
+    spec/start.rb
+    spec_support/all.rb
+    spec_support/capture.rb
   ]
 
   #spec.test_file        = "spec_help/gem_test_suite.rb"
