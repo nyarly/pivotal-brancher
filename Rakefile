@@ -11,10 +11,10 @@ module Corundum
     QuestionableContent.new(core) do |dbg|
       dbg.words = %w{p debugger}
     end
-#    rspec = RSpec.new(core)
-#    cov = SimpleCov.new(core, rspec) do |cov|
-#      cov.threshold = 0
-#    end
+    rspec = RSpec.new(core)
+    cov = SimpleCov.new(core, rspec) do |cov|
+      cov.threshold = 0
+    end
 
     gem = GemBuilding.new(core)
     cutter = GemCutter.new(core,gem)
@@ -25,7 +25,7 @@ module Corundum
 
     yd = YARDoc.new(core)
 
-    docs = DocumentationAssembly.new(core, yd) #, rspec, cov)
+    docs = DocumentationAssembly.new(core, yd, rspec, cov)
 
     pages = GithubPages.new(docs)
   end

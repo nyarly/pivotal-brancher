@@ -22,7 +22,7 @@ module PivotalBrancher
     end
 
     desc "start", "Start a branch for your first started Pivotal story"
-    method_options %w{pretend -p} => :boolean
+    method_options %w{pretend -p} => :boolean #ok
     def start
       stories = app.started_stories
       story = stories.shift
