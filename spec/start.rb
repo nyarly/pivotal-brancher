@@ -1,4 +1,4 @@
-require 'pivotal-brancher/cli'
+require 'pivotal-brancher'
 require 'ostruct'
 
 describe PivotalBrancher::Cli do
