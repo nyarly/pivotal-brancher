@@ -25,7 +25,14 @@ module PivotalBrancher
     method_options %w{pretend -p} => :boolean #ok
     def start
       stories = app.started_stories
+      if stories.empty?
+        say "No started stories found - could be you haven't started any stories yet?"
+        exit
+      end
       story = stories.shift
+
+      #Need to handle empty case ( you should probably start a story...)
+      #
 
       say "Switching to branch for:"
       say "#{story.id}: #{story.name}"
