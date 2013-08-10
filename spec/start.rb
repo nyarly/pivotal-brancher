@@ -35,11 +35,11 @@ describe PivotalBrancher::Cli do
     end
 
     it "should build branch names" do
-      expect(cli.story_branch_name(stories.first)).to eql("123456_this_is_a_story")
+      expect(cli.story_branch_name(stories.first)).to eql("is_a_story_123456")
     end
 
     it "should execute git checkout -b" do
-      cli.should_receive(:run).with("git checkout -b 123456_this_is_a_story")
+      cli.should_receive(:run).with("git checkout -b is_a_story_123456")
       capture_stdout do
         cli.start
       end
