@@ -8,8 +8,10 @@ module PivotalBrancher
     default_task :start
 
     no_commands do
-      def story_branch_name(story)
-        ([story.id] + story.name.split(/[^\w]+/).map(&:downcase)).join("_")
+      def story_branch_name(story, ids=nil)
+        ids ||= [story.id]
+        name = story.name.split(/[:-]\s*/, 2).last.gsub(/'/, '')
+        (name.split(/[^\w]+/).map(&:downcase) + ids).join("_")
       end
 
       def app=(app)
@@ -26,22 +28,36 @@ module PivotalBrancher
     def start
       stories = app.started_stories
       if stories.empty?
-        say "No started stories found - could be you haven't started any stories yet?"
-        exit
       end
-      story = stories.shift
 
-      #Need to handle empty case ( you should probably start a story...)
-      #
+      branch_name =
+        case stories.length
+        when 0
+          say "No started stories found - could be you haven't started any stories yet?"
+          exit
+        when 1
+          story = stories.first
+          say "Switching to branch for:"
+          say "#{story.id}: #{story.name}"
+          story_branch_name(story)
+        when (2..4)
+          say "There are #{stories.length} stories started"
+          stories.each do |story|
+            say "  #{story.id}: #{story.name}"
+          end
+          say
+          branchname = story_branch_name(stories.first, stories.map(&:id))
+          unless yes?("Start branch named #{branchname}?")
+            exit 1
+          end
+          branchname
+        else
+          say "You have #{stories.length} stories started - save some for later"
+          exit 1
+        end
 
-      say "Switching to branch for:"
-      say "#{story.id}: #{story.name}"
-      say ""
-      say "Other started stories are:"
-      stories.each do |story|
-        say "#{story.id}: #{story.name}"
-      end
-      git_command = "git checkout -b #{story_branch_name(story)}"
+
+      git_command = "git checkout -b #{branch_name}"
       if options.pretend?
         say "Would run: #{git_command}"
       else
