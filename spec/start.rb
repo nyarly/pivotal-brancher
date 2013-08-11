@@ -8,6 +8,12 @@ describe PivotalBrancher::Cli do
     end
   end
 
+  let :brancher_app do
+    PivotalBrancher::App.new.tap do |app|
+      app.stub(:started_stories).and_return(stories)
+    end
+  end
+
   let :cli do
     described_class.new.tap do |cli|
       cli.app = brancher_app
@@ -15,13 +21,28 @@ describe PivotalBrancher::Cli do
     end
   end
 
-  describe "with started stories" do
-    let :brancher_app do
-      PivotalBrancher::App.new.tap do |app|
-        app.stub(:started_stories).and_return(stories)
-      end
+  describe "with two started stories" do |app|
+    let :stories do
+      [
+        OpenStruct.new(:id => "123456", :name => "This: is a story"),
+        OpenStruct.new(:id => "123457", :name => "Whereas - a tale")
+      ]
     end
 
+    before :each do
+      cli.stub(:yes? => true)
+    end
+
+    it "should build branch name" do
+      cli.should_receive(:run).with("git checkout -b is_a_story_123456_123457")
+      capture_stdout do
+        cli.start
+      end
+    end
+  end
+
+
+  describe "with started stories" do
     let :stories do
       [
         OpenStruct.new(:id => "123456", :name => "This: is a story")
@@ -47,10 +68,8 @@ describe PivotalBrancher::Cli do
   end
 
   describe "with no started stories" do
-    let :brancher_app do
-      PivotalBrancher::App.new.tap do |app|
-        app.stub(:started_stories).and_return([])
-      end
+    let :stories do
+      []
     end
 
     it "should not execute git" do
