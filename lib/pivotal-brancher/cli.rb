@@ -40,15 +40,28 @@ module PivotalBrancher
           say "Switching to branch for:"
           say "#{story.id}: #{story.name}"
           story_branch_name(story)
-        when (2..4)
+        when (2..6)
           say "There are #{stories.length} stories started"
-          stories.each do |story|
-            say "  #{story.id}: #{story.name}"
-          end
-          say
-          branchname = story_branch_name(stories.first, stories.map(&:id))
-          unless yes?("Start branch named #{branchname}?")
-            exit 1
+          branchname = nil
+          indexes = (1..stories.length).to_a
+          loop do
+            stories.each_with_index do |story, index|
+              say "#{indexes.include?(index + 1) ? "*" : " "} #{story.id}: #{story.name}"
+            end
+            say
+            chosen_stories = stories.each_with_index.find_all do |story, index|
+              indexes.include? index + 1
+            end.map{|story,_| story}
+            branchname = story_branch_name(chosen_stories.first, chosen_stories.map(&:id))
+
+            answer = ask("Start branch named #{branchname}? (or numbers to filter)")
+            if /y|yes/ =~ answer
+              break
+            elsif /\d+(?:\s+\d+)*/ =~ answer
+              indexes = answer.split(/\s+/).map(&:to_i)
+            else
+              exit 1
+            end
           end
           branchname
         else
