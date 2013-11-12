@@ -2,8 +2,8 @@
 --require fuubar
 --format Fuubar
 --drb
+--require simplecov
 -I ~/ruby/rspec-config
--r alert-after-running
 -I spec_support
 -r all
 -P spec/**/*.rb

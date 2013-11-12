@@ -3,3 +3,5 @@
 *.sw?
 pkg/
 corundum/
+errors.err
+.cadre

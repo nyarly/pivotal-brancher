@@ -7,9 +7,13 @@ PATH
       valise (~> 1.0)
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     builder (3.2.2)
+    cadre (0.2.0)
+      thor (~> 0.18.1)
+      tilt (~> 1.0)
+      valise (~> 1.0)
     chunky_png (1.2.9)
     compass (0.12.2)
       chunky_png (~> 1.2)
@@ -95,6 +99,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cadre
   corundum
   fuubar
   pivotal-brancher!

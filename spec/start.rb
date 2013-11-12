@@ -29,12 +29,17 @@ describe PivotalBrancher::Cli do
       ]
     end
 
-    before :each do
-      cli.stub(:yes? => true)
+    it "should build branch name for all stories" do
+      cli.stub(:ask => "yes")
+      cli.should_receive(:run).with("git checkout -b is_a_story_123456_123457")
+      capture_stdout do
+        cli.start
+      end
     end
 
-    it "should build branch name" do
-      cli.should_receive(:run).with("git checkout -b is_a_story_123456_123457")
+    it "should build a branch name for filtered stories" do
+      cli.stub(:ask).and_return("2", "y")
+      cli.should_receive(:run).with("git checkout -b a_tale_123457")
       capture_stdout do
         cli.start
       end
