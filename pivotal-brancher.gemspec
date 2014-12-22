@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "pivotal-brancher"
-  spec.version		= "0.0.5"
+  spec.version		= "0.0.6"
   author_list = {
     "Judson Lester" => 'nyarly@gmail.com'
   }
@@ -44,6 +44,7 @@ Gem::Specification.new do |spec|
   spec.rdoc_options	+= ["--title", "#{spec.name}-#{spec.version} Documentation"]
 
   spec.add_dependency("pivotal-tracker", "~> 0.5.1")
+  spec.add_dependency("octokit", "~> 2.0")
   spec.add_dependency("valise", "~> 1.0")
   spec.add_dependency("thor", "~> 0.18")
 

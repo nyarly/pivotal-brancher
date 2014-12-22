@@ -46,7 +46,7 @@ module PivotalBrancher
           indexes = (1..stories.length).to_a
           loop do
             stories.each_with_index do |story, index|
-              say "#{indexes.include?(index + 1) ? "*" : " "} #{story.id}: #{story.name}"
+              say "#{index+1}#{indexes.include?(index + 1) ? "*" : " "} #{story.id}: #{story.name}"
             end
             say
             chosen_stories = stories.each_with_index.find_all do |story, index|
